@@ -5,16 +5,13 @@ import { ScrollView, StatusBar, Text } from 'react-native'
 export default function Screen() {
   return (
     <>
-      <StatusBar />
       <Stack.Screen
         options={{
           title: 'Home',
           headerShown: false,
         }}
       />
-      <ScrollView>
-        <HomeScreen />
-      </ScrollView>
+      <HomeScreen />
     </>
   )
 }
