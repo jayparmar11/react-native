@@ -42,7 +42,13 @@ function TodoScreen() {
                 width="100%"
                 minHeight="$5"
               >
-                <YStack flexDirection="row" justify="space-between" items="center" gap="$2.5">
+                <YStack
+                  flexDirection="row"
+                  justify="space-between"
+                  items="center"
+                  gap="$2.5"
+                  paddingLeft={'$2'}
+                >
                   <Checkbox
                     size="$5"
                     checked={todo.completed}
