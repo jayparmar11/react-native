@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { NextTamaguiProvider } from 'app/provider/NextTamaguiProvider'
+import { NextTamaguiProvider } from '@exp/app/src/provider/NextTamaguiProvider'
 import '../global.css'
 
 export const metadata: Metadata = {

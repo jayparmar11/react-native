@@ -11,9 +11,8 @@ module.exports = (api) => {
         {
           root: ['../..'],
           alias: {
-            // define aliases to shorten the import paths
-            app: '../../packages/app',
-            '@my/ui': '../../packages/ui',
+            '@exp/app': '../../packages/app/src',
+            '@exp/ui': '../../packages/ui/src',
           },
           extensions: ['.js', '.jsx', '.tsx', '.ios.js', '.android.js'],
         },
@@ -26,7 +25,7 @@ module.exports = (api) => {
             [
               '@tamagui/babel-plugin',
               {
-                components: ['@my/ui', 'tamagui'],
+                components: ['@exp/ui/src', 'tamagui'],
                 config: '../../packages/config/src/tamagui.config.ts',
                 logTimings: true,
                 disableExtraction: process.env.NODE_ENV === 'development',

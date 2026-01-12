@@ -1,14 +1,14 @@
 {
   "version": "0.0.0",
-  "name": "app",
+  "name": "@exp/app",
   "main": "index.ts",
   "private": true,
   "sideEffects": [
     "*.css"
   ],
   "dependencies": {
-    "@my/config": "workspace:*",
-    "@my/ui": "workspace:*",
+    "@exp/config": "workspace:^",
+    "@exp/ui": "workspace:^",
     "@react-navigation/native": "^6.1.17",
     "@tamagui/animations-react-native": "^1.144.1",
     "@tamagui/colors": "^1.144.1",

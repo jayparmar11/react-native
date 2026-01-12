@@ -1,5 +1,5 @@
 {
-  "name": "@my/config",
+  "name": "@exp/config",
   "version": "0.0.1",
   "sideEffects": [
     "*.css"
@@ -7,6 +7,11 @@
   "private": true,
   "types": "./src",
   "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./eslint": "./src/eslint/eslint.config.js",
+    "./create-config": "./src/eslint/create-config.js"
+  },
   "files": [
     "types",
     "dist"
@@ -23,6 +28,7 @@
     "tamagui": "^1.144.1"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^6.7.3",
     "@tamagui/build": "^1.144.1"
   }
 }

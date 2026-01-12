@@ -3,9 +3,9 @@ import { useColorScheme } from 'react-native'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
-import { Provider } from 'app/provider'
+import { Provider } from '@exp/app/src/provider'
 import { PortalHost } from '@rn-primitives/portal'
-// EXPO NOT GENERATING STYLE FROM @my/ui/global.css , so keep this global.css local to project
+// EXPO NOT GENERATING STYLE FROM @exp/ui/global.css , so keep this global.css local to project
 import '../global.css'
 
 export const unstable_settings = {

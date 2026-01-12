@@ -4,8 +4,12 @@
     "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,
     "paths": {
-      "app/*": ["./packages/app/*"],
-      "@my/ui/*": ["./packages/ui/*"]
+      "@exp/app/*": [
+        "./packages/app/src/*"
+      ],
+      "@exp/ui/*": [
+        "./packages/ui/src/*"
+      ]
     }
   },
   "extends": "./tsconfig.base",

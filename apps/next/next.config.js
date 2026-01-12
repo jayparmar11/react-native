@@ -4,6 +4,7 @@ module.exports = {
     ignoreBuildErrors: true,
   },
   transpilePackages: [
+    '@exp/app',
     'nativewind',
     'react-native-css-interop',
     'solito',
