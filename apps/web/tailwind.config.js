@@ -8,7 +8,7 @@ module.exports = {
     './../../packages/app/provider/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   presets: [require('nativewind/preset')],
-  important: 'html body #__next',
+  important: 'html body',
   darkMode: 'class',
   theme: {
     extend: {
