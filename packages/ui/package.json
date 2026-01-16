@@ -8,7 +8,6 @@
   "types": "./src",
   "main": "src/index.tsx",
   "exports": {
-    ".": "./src/index.tsx",
     "./src/rnr": "./src/rnr.tsx"
   },
   "module:jsx": "src",
