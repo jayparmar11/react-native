@@ -15109,6 +15109,7 @@ __metadata:
     "@tamagui/babel-plugin": "npm:^1.144.1"
     "@tamagui/lucide-icons": "npm:^1.144.1"
     "@tamagui/metro-plugin": "npm:^1.144.1"
+    "@tanstack/react-query": "npm:^5.90.16"
     "@types/react": "npm:~19.1.0"
     "@types/semver": "npm:^7"
     app: "workspace:*"

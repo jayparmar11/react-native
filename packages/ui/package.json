@@ -7,9 +7,6 @@
   "private": true,
   "types": "./src",
   "main": "src/index.tsx",
-  "exports": {
-    "./src/rnr": "./src/rnr.tsx"
-  },
   "module:jsx": "src",
   "files": [
     "types",
