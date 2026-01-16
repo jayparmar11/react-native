@@ -40,7 +40,7 @@ function DeleteConfirmationContent(props: {
 
       <XStack className="justify-end gap-3 mt-4">
         {/* <Dialog.Close asChild> */}
-        <Button size="$3" variant="outline" disabled={isDeleting} onPress={onCancel}>
+        <Button size="$3" variant="outlined" disabled={isDeleting} onPress={onCancel}>
           Cancel
         </Button>
         {/* </Dialog.Close> */}
@@ -60,7 +60,7 @@ function StudentRow({
   student: Student
   onAskDelete: (student: Student) => void
 }) {
-  const { id, name, grade, rollNumber } = student
+  const { id, name } = student
 
   const itemLink = useLink({ href: `/students/${id}` })
   const editLink = useLink({ href: `/students/update/${id}` })
@@ -69,14 +69,10 @@ function StudentRow({
     <XStack className="flex-row items-center px-3 py-2 border rounded-lg native:border-2 web:shadow-sm border-zinc-300">
       <YStack className="flex-1" {...itemLink}>
         <Text className="text-base font-medium">{name}</Text>
-        <XStack className="gap-2 mt-1">
-          {rollNumber ? <Text className="text-xs">Roll: {rollNumber}</Text> : null}
-          {grade ? <Text className="text-xs">Grade: {grade}</Text> : null}
-        </XStack>
       </YStack>
 
       <XStack className="items-center gap-2">
-        <Button size="$2" theme="alt1" {...editLink}>
+        <Button size="$2" theme="accent" {...editLink}>
           🖊
         </Button>
         <Button size="$2" theme="red" onPress={() => onAskDelete(student)}>
@@ -131,7 +127,7 @@ export function StudentListScreen() {
     )
   }
 
-  const isDeleting = deleteMutation.isPending || deleteMutation.isLoading
+  const isDeleting = deleteMutation.isPending
 
   return (
     <YStack className="flex-1 w-full max-w-3xl gap-4 px-4 pt-4 pb-16 mx-auto ">
@@ -223,7 +219,7 @@ export function StudentListScreen() {
             bg="$shadow6"
             animateOnly={['transform', 'opacity']}
             animation={[
-              'quicker',
+              'quick',
               {
                 opacity: {
                   overshootClamping: true,
@@ -244,7 +240,7 @@ export function StudentListScreen() {
               key="content"
               animateOnly={['transform', 'opacity']}
               animation={[
-                'quicker',
+                'quick',
                 {
                   opacity: {
                     overshootClamping: true,

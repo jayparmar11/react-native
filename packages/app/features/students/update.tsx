@@ -82,7 +82,7 @@ export function UpdateStudentScreen(props: UpdateStudentScreenProps) {
     })
   }
 
-  const isSubmitting = updateMutation.isPending || updateMutation.isLoading
+  const isSubmitting = updateMutation.isPending
 
   return (
     <KeyboardAvoidingView
@@ -103,7 +103,7 @@ export function UpdateStudentScreen(props: UpdateStudentScreenProps) {
 
             {/* Form */}
             {!isLoading && (
-              <Form className="gap-4 flex flex-col" onSubmit={handleSubmit}>
+              <Form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                 <YStack className="gap-1">
                   <Text className="text-sm">Name</Text>
                   <Input
@@ -138,7 +138,7 @@ export function UpdateStudentScreen(props: UpdateStudentScreenProps) {
             <XStack className="justify-end gap-3 mt-4">
               <Button
                 size="$3"
-                variant="outline"
+                variant="outlined"
                 disabled={isSubmitting}
                 onPress={() => router.back()}
               >

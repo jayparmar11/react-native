@@ -65,7 +65,7 @@ export function AddStudentScreen() {
     })
   }
 
-  const isSubmitting = createMutation.isPending || createMutation.isLoading
+  const isSubmitting = createMutation.isPending
 
   return (
     <KeyboardAvoidingView
@@ -114,7 +114,7 @@ export function AddStudentScreen() {
             <XStack className="justify-end gap-3 mt-4">
               <Button
                 size="$3"
-                variant="outline"
+                variant="outlined"
                 disabled={isSubmitting}
                 onPress={() => router.back()}
               >
