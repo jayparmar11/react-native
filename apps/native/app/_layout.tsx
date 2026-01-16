@@ -6,6 +6,7 @@ import { SplashScreen, Stack } from 'expo-router'
 import { Provider } from 'app/provider'
 import { NativeToast } from '@my/ui/src/NativeToast'
 import '../global.css'
+import { AppQueryClientProvider } from 'app/provider/query-client-provider'
 
 export const unstable_settings = {
   // Ensure that reloading on `/user` keeps a back button present.
@@ -40,10 +41,12 @@ function RootLayoutNav() {
 
   return (
     <Provider>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack />
-        <NativeToast />
-      </ThemeProvider>
+      <AppQueryClientProvider>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <Stack />
+          <NativeToast />
+        </ThemeProvider>
+      </AppQueryClientProvider>
     </Provider>
   )
 }

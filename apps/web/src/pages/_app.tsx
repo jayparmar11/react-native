@@ -8,6 +8,7 @@ import { useMemo } from 'react'
 import { TamaguiProvider } from 'tamagui'
 import '../global.css'
 import '../../public/tamagui.css'
+import { AppQueryClientProvider } from 'app/provider/query-client-provider'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useRootTheme()
@@ -24,8 +25,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NextThemeProvider onChangeTheme={setTheme as any} defaultTheme={theme}>
-        <TamaguiProvider config={config} disableInjectCSS defaultTheme={theme}>
-          {contents}
+        <TamaguiProvider config={config} defaultTheme={theme}>
+          <AppQueryClientProvider>{contents}</AppQueryClientProvider>
         </TamaguiProvider>
       </NextThemeProvider>
     </>

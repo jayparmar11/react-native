@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@my/config": "workspace:*",
+    "@tanstack/react-query": "^5.90.16",
+    "axios": "^1.13.2",
     "@my/ui": "workspace:*",
     "@tamagui/next-theme": "^1.144.1",
     "app": "workspace:*",
