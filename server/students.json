@@ -1,54 +1,52 @@
-{
-  "users": [
-    {
-      "id": 1,
-      "name": "Alice Johnson",
-      "email": "alice.j@example.com"
-    },
-    {
-      "id": 2,
-      "name": "Bob Smith",
-      "email": "bob.smith@example.com"
-    },
-    {
-      "id": 3,
-      "name": "Charlie Davis",
-      "email": "charlie.d@example.com"
-    },
-    {
-      "id": 4,
-      "name": "Diana Prince",
-      "email": "diana.p@example.com"
-    },
-    {
-      "id": 5,
-      "name": "Evan Wright",
-      "email": "evan.w@example.com"
-    },
-    {
-      "id": 6,
-      "name": "Fiona Gallagher",
-      "email": "fiona.g@example.com"
-    },
-    {
-      "id": 7,
-      "name": "George Miller",
-      "email": "george.m@example.com"
-    },
-    {
-      "id": 8,
-      "name": "Hannah Abbott",
-      "email": "hannah.a@example.com"
-    },
-    {
-      "id": 9,
-      "name": "Ian Malcolm",
-      "email": "ian.m@example.com"
-    },
-    {
-      "id": 10,
-      "name": "Julia Roberts",
-      "email": "julia.r@example.com"
-    }
-  ]
-}
+[
+  {
+    "id": "1",
+    "name": "Alice Johnson",
+    "email": "alice.j@example.com"
+  },
+  {
+    "id": "2",
+    "name": "Bob Smith",
+    "email": "bob.smith@example.com"
+  },
+  {
+    "id": "3",
+    "name": "Charlie Davis",
+    "email": "charlie.d@example.com"
+  },
+  {
+    "id": "4",
+    "name": "Diana Prince",
+    "email": "diana.p@example.com"
+  },
+  {
+    "id": "5",
+    "name": "Evan Wright",
+    "email": "evan.w@example.com"
+  },
+  {
+    "id": "6",
+    "name": "Fiona Gallagher",
+    "email": "fiona.g@example.com"
+  },
+  {
+    "id": "7",
+    "name": "George Miller",
+    "email": "george.m@example.com"
+  },
+  {
+    "id": "8",
+    "name": "Hannah Abbott",
+    "email": "hannah.a@example.com"
+  },
+  {
+    "id": "9",
+    "name": "Ian Malcolm",
+    "email": "ian.m@example.com"
+  },
+  {
+    "id": "10",
+    "name": "Julia Roberts",
+    "email": "julia.r@example.com"
+  }
+]

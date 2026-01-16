@@ -10,7 +10,7 @@ const DB_FILE = './students.json'
 async function getStudents(): Promise<any[]> {
   try {
     const data = await fs.readFile(DB_FILE, 'utf-8')
-    return JSON.parse(data).users
+    return JSON.parse(data)
   } catch {
     return []
   }
