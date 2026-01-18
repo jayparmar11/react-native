@@ -7,7 +7,7 @@ import {
   useGetStudentById,
   useUpdateStudent,
   getGetStudentsQueryKey,
-} from './../../api/generated/default/default'
+} from '@my/api/generated/client/students/students'
 import { Button, H1, Text, XStack, YStack, Input, View } from '@my/ui'
 import { useQueryClient } from '@tanstack/react-query'
 

@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base",
-  "include": ["./nativewind-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["./nativewind-env.d.ts", "**/*.ts", "**/*.tsx", "../api/axios-client.ts"],
   "compilerOptions": {
     "composite": true,
     "jsx": "react-jsx",

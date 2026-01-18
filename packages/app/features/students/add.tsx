@@ -4,7 +4,7 @@ import { useRouter } from 'solito/navigation'
 import { useState } from 'react'
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
 import { useLink } from 'solito/navigation'
-import { useCreateStudent, getGetStudentsQueryKey } from './../../api/generated/default/default'
+import { useCreateStudent, getGetStudentsQueryKey } from '@my/api/generated/client/students/students'
 import { Button, H1, Text, XStack, YStack, Input, View } from '@my/ui'
 import { useQueryClient } from '@tanstack/react-query'
 

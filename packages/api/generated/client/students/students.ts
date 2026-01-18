@@ -27,13 +27,9 @@ import type {
   CreateStudentBody,
   Student,
   UpdateStudentBody
-} from '.././model';
+} from '../../model';
 
-import { customInstance } from '../../axios-client';
-
-type AwaitedInput<T> = PromiseLike<T> | T;
-
-      type Awaited<O> = O extends AwaitedInput<infer T> ? T : never;
+import { customInstance } from '../../../axios-client';
 
 
 

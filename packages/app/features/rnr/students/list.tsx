@@ -11,8 +11,8 @@ import {
   getGetStudentsQueryKey,
   useDeleteStudent,
   useGetStudents,
-} from './../../../api/generated/default/default'
-import { type Student } from './../../../api/generated/model/student'
+} from '@my/api/generated/client/students/students'
+import { type Student } from '@my/api/generated/model/student'
 
 type DeleteState = {
   id: string | null

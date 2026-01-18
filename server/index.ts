@@ -1,6 +1,6 @@
 import { serve } from '@hono/node-server'
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
-import { apiReference } from '@scalar/hono-api-reference'
+import { Scalar } from '@scalar/hono-api-reference'
 import { cors } from 'hono/cors'
 import fs from 'node:fs/promises'
 
@@ -46,6 +46,7 @@ app.openapi(
   createRoute({
     method: 'get',
     path: '/students',
+    tags: ['students'],
     operationId: 'getStudents',
     responses: {
       200: {
@@ -65,6 +66,7 @@ app.openapi(
   createRoute({
     method: 'get',
     path: '/students/{id}',
+    tags: ['students'],
     operationId: 'getStudentById',
     request: { params: ParamsSchema },
     responses: {
@@ -89,6 +91,7 @@ app.openapi(
   createRoute({
     method: 'post',
     path: '/students',
+    tags:['students'],
     operationId: 'createStudent',
     request: { body: { content: { 'application/json': { schema: CreateStudentSchema } } } },
     responses: {
@@ -113,6 +116,7 @@ app.openapi(
   createRoute({
     method: 'put',
     path: '/students/{id}',
+    tags:['students'],
     operationId: 'updateStudent',
     request: {
       params: ParamsSchema,
@@ -147,6 +151,7 @@ app.openapi(
   createRoute({
     method: 'delete',
     path: '/students/{id}',
+    tags:['students'],
     operationId: 'deleteStudent',
     request: { params: ParamsSchema },
     responses: {
@@ -172,7 +177,7 @@ app.doc('/doc', {
   info: { title: 'Student Management API', version: '1.0.0' },
 })
 
-app.get('/reference', apiReference({ spec: { url: '/doc' } }))
+app.get('/reference', Scalar({ spec: { url: '/doc' } }))
 
 console.log('Server running on http://localhost:5000')
 console.log('API Docs available at http://localhost:5000/reference')

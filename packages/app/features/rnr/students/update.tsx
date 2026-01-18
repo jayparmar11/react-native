@@ -8,7 +8,7 @@ import {
   getGetStudentsQueryKey,
   useGetStudentById,
   useUpdateStudent,
-} from './../../../api/generated/default/default'
+} from '@my/api/generated/client/students/students'
 
 import { Button as Button } from '@my/ui/src/components/button'
 import { Input as Input } from '@my/ui/src/components/input'

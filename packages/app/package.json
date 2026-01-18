@@ -10,6 +10,7 @@
     "generate-api": "orval"
   },
   "dependencies": {
+    "@my/api": "workspace:*",
     "@my/config": "workspace:*",
     "@my/ui": "workspace:*",
     "@react-navigation/native": "^6.1.17",
