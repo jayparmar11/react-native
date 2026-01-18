@@ -5,14 +5,12 @@ import { useState } from 'react'
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
 import { useCreateStudent, getGetStudentsQueryKey } from './../../../api/generated/default/default'
 import { useQueryClient } from '@tanstack/react-query'
-// import { RNRButton, RNRInput, RNRText, RNRView } from '@my/ui/components'
+// import { Button, Input, Text, View } from '@my/ui/components'
 
-import { Button as RNRButton } from '@my/ui/src/components/button'
-import { Text as RNRText } from '@my/ui/src/components/text'
-import { Input as RNRInput } from '@my/ui/src/components/input'
-import { View as RNRView } from 'react-native'
-
-const Form = Platform.OS === 'web' ? 'form' : RNRView
+import { Button } from '@my/ui/src/components/button'
+import { Text } from '@my/ui/src/components/text'
+import { Input } from '@my/ui/src/components/input'
+import { View } from 'react-native'
 
 export function AddStudentScreen() {
   const [name, setName] = useState('')
@@ -56,7 +54,6 @@ export function AddStudentScreen() {
   }
 
   const handleSubmit = (event?: React.FormEvent) => {
-    console.log('hmmm')
     if (event && Platform.OS === 'web') {
       event.preventDefault()
     }
@@ -80,19 +77,19 @@ export function AddStudentScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled">
-        <RNRView className="self-center flex-1 w-full max-w-xl px-4 py-6">
+        <View className="self-center flex-1 w-full max-w-xl px-4 py-6">
           {/* Header */}
-          <RNRView className="mb-6">
-            <RNRText className="mb-1 text-2xl font-semibold text-gray-900">Add Student</RNRText>
-            <RNRText className="text-sm text-gray-500">Create a new student record.</RNRText>
-          </RNRView>
+          <View className="mb-6">
+            <Text className="mb-1 text-2xl font-semibold text-gray-900">Add Student</Text>
+            <Text className="text-sm text-gray-500">Create a new student record.</Text>
+          </View>
 
           {/* Form */}
-          <RNRView className={'space-y-4'}>
+          <View className={'space-y-4'}>
             {/* Name */}
-            <RNRView className="mb-4">
-              <RNRText className="mb-1 text-sm font-medium text-gray-800">Name</RNRText>
-              <RNRInput
+            <View className="mb-4">
+              <Text className="mb-1 text-sm font-medium text-gray-800">Name</Text>
+              <Input
                 value={name}
                 onChangeText={setName}
                 placeholder="Enter full name"
@@ -101,14 +98,14 @@ export function AddStudentScreen() {
                 autoCorrect={false}
               />
               {errors.name ? (
-                <RNRText className="mt-1 text-xs text-red-500">{errors.name}</RNRText>
+                <Text className="mt-1 text-xs text-red-500">{errors.name}</Text>
               ) : null}
-            </RNRView>
+            </View>
 
             {/* Email */}
-            <RNRView className="mb-4">
-              <RNRText className="mb-1 text-sm font-medium text-gray-800">Email</RNRText>
-              <RNRInput
+            <View className="mb-4">
+              <Text className="mb-1 text-sm font-medium text-gray-800">Email</Text>
+              <Input
                 value={email}
                 onChangeText={setEmail}
                 placeholder="name@example.com"
@@ -118,40 +115,34 @@ export function AddStudentScreen() {
                 className="px-3 py-2 text-base border border-gray-300 rounded-md"
               />
               {errors.email ? (
-                <RNRText className="mt-1 text-xs text-red-500">{errors.email}</RNRText>
+                <Text className="mt-1 text-xs text-red-500">{errors.email}</Text>
               ) : null}
-            </RNRView>
+            </View>
 
             {/* Server error */}
             {serverError ? (
-              <RNRView className="mb-4">
-                <RNRText className="text-xs text-red-600">{serverError}</RNRText>
-              </RNRView>
+              <View className="mb-4">
+                <Text className="text-xs text-red-600">{serverError}</Text>
+              </View>
             ) : null}
 
             {/* Actions */}
-            <RNRView className="flex-row justify-end mt-4 gap-4">
-              <RNRButton
-                // @ts-expect-error
-                type={Platform.OS === 'web' ? 'button' : undefined}
+            <View className="flex-row justify-end mt-4 gap-4">
+              <Button
+              variant={'outline'}
                 onPress={() => router.back()}
-                className="px-4 py-2 bg-white border border-gray-300 rounded-md"
               >
-                <RNRText className="text-sm text-gray-700">Cancel</RNRText>
-              </RNRButton>
+                <Text>Cancel</Text>
+              </Button>
 
-              <RNRButton
-                onPress={() => handleSubmit()}
-                disabled={isSubmitting}
-                className="px-4 py-2 bg-blue-600 rounded-md disabled:bg-blue-400"
-              >
-                <RNRText className="text-sm text-white">
+              <Button  onPress={() => handleSubmit()} disabled={isSubmitting}>
+                <Text>
                   {isSubmitting ? 'Creating...' : 'Create'}
-                </RNRText>
-              </RNRButton>
-            </RNRView>
-          </RNRView>
-        </RNRView>
+                </Text>
+              </Button>
+            </View>
+          </View>
+        </View>
       </ScrollView>
     </KeyboardAvoidingView>
   )

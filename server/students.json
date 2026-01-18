@@ -35,11 +35,6 @@
     "email": "george.m@example.com"
   },
   {
-    "id": "8",
-    "name": "Hannah Abbott",
-    "email": "hannah.a@example.com"
-  },
-  {
     "id": "9",
     "name": "Ian Malcolm",
     "email": "ian.m@example.com"
@@ -48,11 +43,6 @@
     "id": "10",
     "name": "Julia Roberts",
     "email": "julia.r@example.com"
-  },
-  {
-    "name": "dfasdf",
-    "email": "fasdfdf@gfadf.asdfasdf",
-    "id": "1768745014380"
   },
   {
     "name": "asdfasdf",

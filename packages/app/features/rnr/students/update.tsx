@@ -10,16 +10,14 @@ import {
   useUpdateStudent,
 } from './../../../api/generated/default/default'
 
-import { Button as RNRButton } from '@my/ui/src/components/button'
-import { Input as RNRInput } from '@my/ui/src/components/input'
-import { Text as RNRText } from '@my/ui/src/components/text'
-import { View as RNRView } from 'react-native'
+import { Button as Button } from '@my/ui/src/components/button'
+import { Input as Input } from '@my/ui/src/components/input'
+import { Text as Text } from '@my/ui/src/components/text'
+import { View as View } from 'react-native'
 
 type UpdateStudentScreenProps = {
   id: string
 }
-
-const Form = Platform.OS === 'web' ? 'form' : RNRView
 
 export function UpdateStudentScreen(props: UpdateStudentScreenProps) {
   const { id } = props
@@ -97,31 +95,24 @@ export function UpdateStudentScreen(props: UpdateStudentScreenProps) {
       className="flex-1 bg-white"
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled">
-        <RNRView className="flex-1 px-4 py-8">
-          <RNRView className="w-full max-w-md mx-auto">
+        <View className="flex-1 px-4 py-8">
+          <View className="w-full max-w-md mx-auto">
             {/* Header */}
-            <RNRView className="items-center mb-6">
-              <RNRText className="text-2xl font-semibold text-gray-900">Edit Student</RNRText>
-              <RNRText className="text-xs text-gray-500 mt-1">
-                Update the student information.
-              </RNRText>
-            </RNRView>
+            <View className="items-center mb-6">
+              <Text className="text-2xl font-semibold text-gray-900">Edit Student</Text>
+              <Text className="text-xs text-gray-500 mt-1">Update the student information.</Text>
+            </View>
 
             {/* Loading state before data */}
-            {isLoading && (
-              <RNRText className="text-sm text-gray-600 mb-4">Loading student...</RNRText>
-            )}
+            {isLoading && <Text className="text-sm text-gray-600 mb-4">Loading student...</Text>}
 
             {/* Form */}
             {!isLoading && (
-              <Form
-                className={Platform.OS === 'web' ? 'flex flex-col gap-4' : undefined}
-                onSubmit={Platform.OS === 'web' ? handleSubmit : undefined}
-              >
+              <View className={Platform.OS === 'web' ? 'flex flex-col gap-4' : undefined}>
                 {/* Name */}
-                <RNRView className="mb-4">
-                  <RNRText className="text-sm text-gray-800 mb-1">Name</RNRText>
-                  <RNRInput
+                <View className="mb-4">
+                  <Text className="text-sm text-gray-800 mb-1">Name</Text>
+                  <Input
                     value={name}
                     onChangeText={setName}
                     placeholder="Enter name"
@@ -130,14 +121,14 @@ export function UpdateStudentScreen(props: UpdateStudentScreenProps) {
                     className="border border-gray-300 rounded-md px-3 py-2 text-base"
                   />
                   {errors.name ? (
-                    <RNRText className="text-xs text-red-500 mt-1">{errors.name}</RNRText>
+                    <Text className="text-xs text-red-500 mt-1">{errors.name}</Text>
                   ) : null}
-                </RNRView>
+                </View>
 
                 {/* Email */}
-                <RNRView className="mb-4">
-                  <RNRText className="text-sm text-gray-800 mb-1">Email</RNRText>
-                  <RNRInput
+                <View className="mb-4">
+                  <Text className="text-sm text-gray-800 mb-1">Email</Text>
+                  <Input
                     value={email}
                     onChangeText={setEmail}
                     placeholder="Enter email"
@@ -146,40 +137,30 @@ export function UpdateStudentScreen(props: UpdateStudentScreenProps) {
                     className="border border-gray-300 rounded-md px-3 py-2 text-base"
                   />
                   {errors.email ? (
-                    <RNRText className="text-xs text-red-500 mt-1">{errors.email}</RNRText>
+                    <Text className="text-xs text-red-500 mt-1">{errors.email}</Text>
                   ) : null}
-                </RNRView>
+                </View>
 
                 {/* Server error */}
                 {serverError ? (
-                  <RNRView className="mb-2">
-                    <RNRText className="text-xs text-red-600">{serverError}</RNRText>
-                  </RNRView>
+                  <View className="mb-2">
+                    <Text className="text-xs text-red-600">{serverError}</Text>
+                  </View>
                 ) : null}
-              </Form>
+              </View>
             )}
 
             {/* Actions */}
-            <RNRView className="flex-row justify-end gap-4 mt-4">
-              <RNRButton
-                onPress={() => router.back()}
-                disabled={isSubmitting}
-                className="px-4 py-2 rounded-md border border-gray-300 bg-white"
-              >
-                <RNRText className="text-sm text-gray-700">Cancel</RNRText>
-              </RNRButton>
-              <RNRButton
-                onPress={Platform.OS === 'web' ? undefined : () => handleSubmit()}
-                disabled={isSubmitting || isLoading}
-                className="px-4 py-2 rounded-md bg-blue-600 disabled:bg-blue-400"
-              >
-                <RNRText className="text-sm text-white">
-                  {isSubmitting ? 'Saving...' : 'Save'}
-                </RNRText>
-              </RNRButton>
-            </RNRView>
-          </RNRView>
-        </RNRView>
+            <View className="flex-row justify-end gap-4 mt-4">
+              <Button  variant="outline" onPress={() => router.back()} disabled={isSubmitting}>
+                <Text>Cancel</Text>
+              </Button>
+              <Button onPress={() => handleSubmit()} disabled={isSubmitting || isLoading}>
+                <Text>{isSubmitting ? 'Saving...' : 'Save'}</Text>
+              </Button>
+            </View>
+          </View>
+        </View>
       </ScrollView>
     </KeyboardAvoidingView>
   )
