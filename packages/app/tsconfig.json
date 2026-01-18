@@ -1,20 +1,13 @@
 {
   "extends": "../../tsconfig.base",
-  "include": [
-    "./nativewind-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
+  "include": ["./nativewind-env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "composite": true,
     "jsx": "react-jsx",
     "paths": {
-      "app/*": [
-        "./packages/app/*"
-      ],
-      "@my/ui/*": [
-        "./packages/ui/*"
-      ]
+      "app/*": ["./packages/app/*"],
+      "@my/ui": ["../ui/src/index.tsx"], // Map the root import
+      "@my/ui/components": ["../ui/src/components/index.tsx"] // Map sub-paths like /rnr
     }
   },
   "references": []

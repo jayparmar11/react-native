@@ -1,0 +1,191 @@
+<header
+  class="sticky top-0 z-20 border-b border-gray-200 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md dark:border-gray-800">
+  <div class="flex items-center justify-between p-4 pb-2">
+    <div class="flex items-center gap-3">
+      <div class="p-2 rounded-lg bg-primary/10 text-primary">
+        <span class="block material-symbols-outlined">school</span>
+      </div>
+      <h1 class="text-[#0e191b] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Student
+        List</h1>
+    </div>
+    <button
+      class="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent text-[#0e191b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+      <span class="material-symbols-outlined">tune</span>
+    </button>
+  </div>
+  <!-- Search Bar Component -->
+  <div class="px-4 py-3">
+    <label class="flex flex-col w-full h-12 min-w-40">
+      <div class="flex items-stretch flex-1 w-full h-full shadow-sm rounded-xl">
+        <div
+          class="text-[#508c95] flex border-none bg-white dark:bg-[#2C3B4A] items-center justify-center pl-4 rounded-l-xl"
+          data-icon="MagnifyingGlass">
+          <span class="material-symbols-outlined">search</span>
+        </div>
+        <input
+          class="form-input flex w-full min-w-0 flex-1 border-none bg-white dark:bg-[#2C3B4A] focus:ring-0 h-full placeholder:text-[#508c95] px-4 rounded-r-xl pl-2 text-base font-normal leading-normal dark:text-white"
+          placeholder="Search by name or ID" value="" />
+      </div>
+    </label>
+  </div>
+</header>
+<main class="pt-2 pb-24">
+  <!-- List Header / Stats -->
+  <div class="flex items-center justify-between px-4 py-2">
+    <span class="text-xs font-semibold uppercase tracking-wider text-[#508c95]">Active Records (45)</span>
+    <span class="text-xs text-[#508c95]">Sort: Recent</span>
+  </div>
+  <!-- List Items Container -->
+  <div class="px-4 space-y-1">
+    <!-- Student Card 1 -->
+    <div
+      class="flex items-center gap-4 bg-white dark:bg-[#2C3B4A] px-4 min-h-[80px] py-3 justify-between rounded-xl shadow-sm border border-gray-100 dark:border-gray-700/50 mb-2">
+      <div class="flex items-center gap-4">
+        <div class="bg-center bg-no-repeat bg-cover border-2 rounded-full aspect-square h-14 w-14 border-primary/20"
+          data-alt="portrait of a young female student"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwzh3uQAHN9ctKDmr0rcKFkyUTNbklpbtxm2cOa-atbZqet6WiCaeA4A-nUujd5GYJPrbqRfmHP5rk6wSnVCvbJzOy8YL1t2ycJLJ_q-I_xbFhcpSCl-5B1_NMO0NocFjAzuTG-UsKe20Xj1uJ5LoJn6g0yoVCHKma-yGSjlURTWMVBlyKNDAYMW4acqCL3PtyPI3EqFn6bgY50B-u7RUTzuBFDCoWvWbwUZOuJA3Y_sFlsWkO3z-2g6niRma0y80IrpLVQ_hbzCo");'>
+        </div>
+        <div class="flex flex-col justify-center">
+          <p class="text-[#0e191b] dark:text-white text-base font-semibold leading-tight line-clamp-1">
+            Jane Cooper</p>
+          <p class="text-[#508c95] dark:text-gray-400 text-xs font-medium mt-1 uppercase tracking-tighter">
+            ID: SID-202301</p>
+          <div class="flex mt-2">
+            <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">11th
+              Grade</span>
+          </div>
+        </div>
+      </div>
+      <div class="shrink-0">
+        <div class="flex items-center justify-center text-gray-300 dark:text-gray-600 size-7">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
+    </div>
+    <!-- Student Card 2 -->
+    <div
+      class="flex items-center gap-4 bg-white dark:bg-[#2C3B4A] px-4 min-h-[80px] py-3 justify-between rounded-xl shadow-sm border border-gray-100 dark:border-gray-700/50 mb-2">
+      <div class="flex items-center gap-4">
+        <div class="bg-center bg-no-repeat bg-cover border-2 rounded-full aspect-square h-14 w-14 border-primary/20"
+          data-alt="portrait of a male student wearing glasses"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQBBLejE7uvGLO7p5RzQvD9DUioMLW_aowScMIlQktTOAzgtZTSgaPEiNelrLCq-Qs4Bm6SS4Cknzh8wHCstCuHHnghNlOPV_aRRFSqSpXWr1xdVd9VhIdtV5bDyTJfAVTKDYPsb8uByz5z186hkGFR224bO-QpHlUqn_1mxqUBq9T10In5qO3RY7LLSpmv36tGLEBdvipd6oF6wfO9bvT2S3vEHSbn-mLA-610IFZdn3WcSA7q7nfDbcUxgQDTJjSwyMWrMHQFbM");'>
+        </div>
+        <div class="flex flex-col justify-center">
+          <p class="text-[#0e191b] dark:text-white text-base font-semibold leading-tight line-clamp-1">
+            Wade Warren</p>
+          <p class="text-[#508c95] dark:text-gray-400 text-xs font-medium mt-1 uppercase tracking-tighter">
+            ID: SID-202302</p>
+          <div class="flex mt-2">
+            <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">10th
+              Grade</span>
+          </div>
+        </div>
+      </div>
+      <div class="shrink-0">
+        <div class="flex items-center justify-center text-gray-300 dark:text-gray-600 size-7">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
+    </div>
+    <!-- Student Card 3 -->
+    <div
+      class="flex items-center gap-4 bg-white dark:bg-[#2C3B4A] px-4 min-h-[80px] py-3 justify-between rounded-xl shadow-sm border border-gray-100 dark:border-gray-700/50 mb-2">
+      <div class="flex items-center gap-4">
+        <div class="bg-center bg-no-repeat bg-cover border-2 rounded-full aspect-square h-14 w-14 border-primary/20"
+          data-alt="portrait of a female student with curly hair"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBmfiXbpqb0tipqRiCU1G1fY_DadU0SRLz6nKCS_2wKY_VKkA-N7wZ8siMAFLreB_gOzQmBKqwVC1HJ57oCDk5kjSPn4_NRSkhCwFiAElBCXOzSIFIyazRaNakp7ItStBW9eqePDu4RWarxUlcmGTz6ncDRCr2HKlX59GftGSJYmDadBv2vCumvIoxybZNMubKViOu9pDjkBhk6DzoT4C1XgC-AU5_QBrpj4-rzMPDDtUOM5OqAcBr9IwFyk9Cx2-jc2Gv8TEdPsDo");'>
+        </div>
+        <div class="flex flex-col justify-center">
+          <p class="text-[#0e191b] dark:text-white text-base font-semibold leading-tight line-clamp-1">
+            Esther Howard</p>
+          <p class="text-[#508c95] dark:text-gray-400 text-xs font-medium mt-1 uppercase tracking-tighter">
+            ID: SID-202303</p>
+          <div class="flex mt-2">
+            <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">12th
+              Grade</span>
+          </div>
+        </div>
+      </div>
+      <div class="shrink-0">
+        <div class="flex items-center justify-center text-gray-300 dark:text-gray-600 size-7">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
+    </div>
+    <!-- Student Card 4 -->
+    <div
+      class="flex items-center gap-4 bg-white dark:bg-[#2C3B4A] px-4 min-h-[80px] py-3 justify-between rounded-xl shadow-sm border border-gray-100 dark:border-gray-700/50 mb-2">
+      <div class="flex items-center gap-4">
+        <div class="bg-center bg-no-repeat bg-cover border-2 rounded-full aspect-square h-14 w-14 border-primary/20"
+          data-alt="portrait of a young male student with short hair"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEyXKMISEPcU0jFQvQq6mZWu-Zcrg_tLGzbI3l9UvdLIOLJNuEpeYF76KG1Ouli6SiArGX-f2DwjoeVGTPj8F42Y6DqDZMBN2PdYdaN_YsOYqU-nuMaaQlaHkFp4o9S4x7f-ZY7XKBIBxdUaF1JizBbMDplX8PO8_2rFhg2v2ReM4YRX8MFd2S77geGjpyulNajc0JCDxmM_FW4WU-Nk5Suvf-0QNDzDHi1beBgge0dP2_qLjWRGCucM04-lR20JlIzOIM163DSB0");'>
+        </div>
+        <div class="flex flex-col justify-center">
+          <p class="text-[#0e191b] dark:text-white text-base font-semibold leading-tight line-clamp-1">Guy
+            Hawkins</p>
+          <p class="text-[#508c95] dark:text-gray-400 text-xs font-medium mt-1 uppercase tracking-tighter">
+            ID: SID-202304</p>
+          <div class="flex mt-2">
+            <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">9th
+              Grade</span>
+          </div>
+        </div>
+      </div>
+      <div class="shrink-0">
+        <div class="flex items-center justify-center text-gray-300 dark:text-gray-600 size-7">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
+    </div>
+    <!-- Student Card 5 -->
+    <div
+      class="flex items-center gap-4 bg-white dark:bg-[#2C3B4A] px-4 min-h-[80px] py-3 justify-between rounded-xl shadow-sm border border-gray-100 dark:border-gray-700/50 mb-2">
+      <div class="flex items-center gap-4">
+        <div class="bg-center bg-no-repeat bg-cover border-2 rounded-full aspect-square h-14 w-14 border-primary/20"
+          data-alt="portrait of a female student wearing a hat"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUV_6iEdn2vtSVlAcgVad0nwR7nWQCLAwBFmdLwSnSeZHVpto7fVyuMRj_MQacc_ACEFD_CO4m8L6Bll4GKN902-4vaXieLIa2Zbm6gnoa2GU1LpyobbQDdP-d70r0Drsp3iA8qoV9RhsslhQww79-7dnKGEVb-wiarFxg3ypJYjyreSWpi1yVNJZo1iNeSGZvC-TCB-_gbE9ldTDGL98YzvyVb6bie9vCSoZpf2OENO-U7-1_48H2S3-p8zhVeH0fqVq8JRQl3LE");'>
+        </div>
+        <div class="flex flex-col justify-center">
+          <p class="text-[#0e191b] dark:text-white text-base font-semibold leading-tight line-clamp-1">
+            Brooklyn Simmons</p>
+          <p class="text-[#508c95] dark:text-gray-400 text-xs font-medium mt-1 uppercase tracking-tighter">
+            ID: SID-202305</p>
+          <div class="flex mt-2">
+            <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">11th
+              Grade</span>
+          </div>
+        </div>
+      </div>
+      <div class="shrink-0">
+        <div class="flex items-center justify-center text-gray-300 dark:text-gray-600 size-7">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Floating Action Button -->
+<button
+  class="fixed z-30 flex items-center justify-center text-white transition-transform rounded-full shadow-lg bottom-24 right-6 size-14 bg-primary shadow-primary/40 active:scale-95">
+  <span class="material-symbols-outlined !text-3xl">add</span>
+</button>
+<!-- Bottom Navigation Tab Bar -->
+<nav
+  class="fixed bottom-0 left-0 right-0 z-40 flex items-center justify-between h-20 px-6 border-t border-gray-200 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md dark:border-gray-800">
+  <div class="flex flex-col items-center gap-1 text-primary">
+    <span class="material-symbols-outlined">group</span>
+    <span class="text-[10px] font-bold uppercase tracking-widest">Students</span>
+  </div>
+  <div class="flex flex-col items-center gap-1 text-[#508c95] dark:text-gray-400 opacity-60">
+    <span class="material-symbols-outlined">calendar_month</span>
+    <span class="text-[10px] font-bold uppercase tracking-widest">Attendance</span>
+  </div>
+  <div class="flex flex-col items-center gap-1 text-[#508c95] dark:text-gray-400 opacity-60">
+    <span class="material-symbols-outlined">analytics</span>
+    <span class="text-[10px] font-bold uppercase tracking-widest">Reports</span>
+  </div>
+  <div class="flex flex-col items-center gap-1 text-[#508c95] dark:text-gray-400 opacity-60">
+    <span class="material-symbols-outlined">settings</span>
+    <span class="text-[10px] font-bold uppercase tracking-widest">Setup</span>
+  </div>
+</nav>

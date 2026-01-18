@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
     'react-native',
     'react-native-web',
     '@rn-primitives/slot',
+    '@rn-primitives/portal',
+    '@rn-primitives/separator',
     '@tamagui/react-native-svg',
     '@tamagui/next-theme',
     '@tamagui/lucide-icons',
@@ -18,7 +20,6 @@ const nextConfig: NextConfig = {
     'expo-modules-core',
     'nativewind',
     'react-native-css-interop',
-    '@rn-primitives/portal',
   ],
   experimental: {
     scrollRestoration: true,

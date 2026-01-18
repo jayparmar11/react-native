@@ -2,6 +2,7 @@ import { TextClassContext } from './text'
 import { cn } from '../lib/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Platform, Pressable } from 'react-native'
+import { cssInterop } from 'nativewind'
 
 const buttonVariants = cva(
   cn(
@@ -103,6 +104,10 @@ function Button({ className, variant, size, ...props }: ButtonProps) {
     </TextClassContext.Provider>
   )
 }
+Button.displayName = 'Button'
+// cssInterop(Button, {
+//   className: 'style',
+// })
 
 export { Button, buttonTextVariants, buttonVariants }
 export type { ButtonProps }

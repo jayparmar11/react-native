@@ -1,10 +1,11 @@
-import { useEffect } from 'react'
-import { useColorScheme } from 'react-native'
+import { NativeToast } from '@my/ui/src/NativeToast'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
+import { Provider } from 'app/provider'
+import { AppQueryClientProvider } from 'app/provider/query-client-provider'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
-import { Provider } from 'app/provider'
-import { NativeToast } from '@my/ui/src/NativeToast'
+import { useEffect } from 'react'
+import { useColorScheme } from 'react-native'
 import '../global.css'
 
 export const unstable_settings = {
@@ -40,10 +41,12 @@ function RootLayoutNav() {
 
   return (
     <Provider>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack />
-        <NativeToast />
-      </ThemeProvider>
+      <AppQueryClientProvider>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <Stack />
+          <NativeToast />
+        </ThemeProvider>
+      </AppQueryClientProvider>
     </Provider>
   )
 }
