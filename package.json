@@ -9,7 +9,7 @@
     "dev": "turbo dev",
     "native": "cd apps/native && yarn dev",
     "native:prebuild": "cd apps/native && yarn prebuild",
-    "generate":"cd packages/api && yarn generate",
+    "generate": "cd packages/api && yarn generate",
     "ios": "cd apps/native && yarn ios",
     "android": "cd apps/native && yarn android",
     "watch": "ultra -r --no-pretty --concurrency 400 watch",
@@ -23,8 +23,6 @@
     "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest",
     "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary",
     "check-tamagui": "tamagui check",
-    "test": "vitest run",
-    "test:watch": "vitest",
     "prepare": "husky"
   },
   "dependencies": {
@@ -36,8 +34,7 @@
     "husky": "^9.1.6",
     "turbo": "^2.7.4",
     "typescript": "~5.8.3",
-    "ultra-runner": "^3.10.5",
-    "vitest": "^2.1.1"
+    "ultra-runner": "^3.10.5"
   },
   "packageManager": "yarn@4.5.0",
   "engines": {
