@@ -58,7 +58,7 @@ yarn web
 yarn native
 ```
 
-## [Tamagui](https://tamagui.dev/) [github](https://github.com/tamagui/tamagui)
+## [Tamagui](https://tamagui.dev/) | [github](https://github.com/tamagui/tamagui)
 - Creator : [Nate Wienert](https://github.com/natew) [LinkedIn](https://www.linkedin.com/in/nathan-wienert-89091945/)
 - 13k stars on Github.
 - Growing cross-platform component library.
@@ -75,7 +75,7 @@ yarn native
 - No built-in data table or chart support.
 
 
-## [React Native Reusables](https://reactnativereusables.com/) [github](https://github.com/founded-labs/react-native-reusables)
+## [React Native Reusables](https://reactnativereusables.com/) | [github](https://github.com/founded-labs/react-native-reusables)
 - 8k stars on Github
 - Creator : [Zach Nugent](https://github.com/mrzachnugent) [LinkedIn](https://www.linkedin.com/in/mrzachnugent)
 - uses NativeWind v4 under the hood.
@@ -87,12 +87,12 @@ yarn native
 - Younger, less battle-tested than shadcn & tamagui, Docs and ecosystem still growing.
 - In Next.js, limited to pages router for now.
 
-## [Solito](https://solito.dev/) [github](https://github.com/nandorojo/solito)
+## [Solito](https://solito.dev/) | [github](https://github.com/nandorojo/solito)
 - Cross platform React Native + Next.js Navigation library.
 - 4k stars on github.
 - Creator : [Fernando Rojo](https://github.com/nandorojo) [LinkedIn](https://www.linkedin.com/in/fernandotherojo/)
 
-## [Nativewind](https://www.nativewind.dev/) [github](https://github.com/nativewind/nativewind)
+## [Nativewind](https://www.nativewind.dev/) | [github](https://github.com/nativewind/nativewind)
 - tailwindcss for react native & react native web.
 - 7.5k stars on github
 - Creator : [Mark Lawlor](https://github.com/marklawlor) [LinkedIn](https://www.linkedin.com/in/mark-lawlor-6b13055a/)
