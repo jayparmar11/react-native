@@ -3,15 +3,15 @@
 import { Adapt, Button, Dialog, H1, Separator, Sheet, Text, View, XStack, YStack } from '@my/ui'
 import { useMemo, useState } from 'react'
 import { Platform } from 'react-native'
-import { ChevronRight, Pencil, Plus, Trash2 } from '@tamagui/lucide-icons'
+import { ChevronLeft, ChevronRight, Pencil, Plus, Trash2 } from '@tamagui/lucide-icons'
 import { useQueryClient } from '@tanstack/react-query'
-import { useLink } from 'solito/navigation'
+import { useLink, useRouter } from 'solito/navigation'
 import {
   getGetStudentsQueryKey,
   useDeleteStudent,
   useGetStudents,
 } from '@my/api/generated/client/students/students'
-import { Student } from '@my/api/generated/model/student'
+import { type Student } from '@my/api/generated/model/student'
 
 type DeleteState = {
   id: string | null
@@ -90,6 +90,7 @@ function StudentRow({
 export function StudentListScreen() {
   const { data, isLoading, isError } = useGetStudents()
   const deleteMutation = useDeleteStudent()
+  const router = useRouter()
 
   const queryClient = useQueryClient()
   const students = useMemo(() => data ?? [], [data])
@@ -135,20 +136,25 @@ export function StudentListScreen() {
   return (
     <YStack className="flex-1 w-full max-w-3xl gap-4 px-4 pt-4 pb-16 mx-auto ">
       {/* Header */}
-      <XStack className="items-center justify-between">
-        <YStack>
-          <H1>Students</H1>
-          <Text className="text-xs">
-            {isLoading ? 'Loading...' : `${students.length} record(s)`}
-          </Text>
-        </YStack>
+      <YStack className="items-start justify-start">
+        <Button size="$4" variant='outlined' icon={ChevronLeft} onPress={() => router.back()} className='w-fit'>
+          <Text className="!font-bold text-xl">BACK</Text>
+        </Button>
+        <XStack className="items-center justify-between">
+          <YStack>
+            <H1>Students</H1>
+            <Text className="text-xs">
+              {isLoading ? 'Loading...' : `${students.length} record(s)`}
+            </Text>
+          </YStack>
 
-        {Platform.OS === 'web' && (
-          <Button size="$4" theme="accent" icon={Plus} {...addLink}>
-            <Text className="!font-bold text-xl">Add</Text>
-          </Button>
-        )}
-      </XStack>
+          {Platform.OS === 'web' && (
+            <Button size="$4" theme="accent" icon={Plus} {...addLink}>
+              <Text className="!font-bold text-xl">Add</Text>
+            </Button>
+          )}
+        </XStack>
+      </YStack>
 
       <Separator />
 
@@ -171,9 +177,9 @@ export function StudentListScreen() {
       </YStack>
 
       {/* Floating add button */}
-      <XStack className="absolute right-4 bottom-6" pointerEvents="box-none" >
+      <XStack className="absolute right-4 bottom-6" pointerEvents="box-none">
         {Platform.OS !== 'web' && (
-          <Button size="$5" theme="accent" icon={Plus} scaleIcon={1.5} {...addLink} >
+          <Button size="$5" theme="accent" icon={Plus} scaleIcon={1.5} {...addLink}>
             <Text className="!font-bold text-xl">ADD</Text>
           </Button>
         )}

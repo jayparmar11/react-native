@@ -3,7 +3,7 @@
 // const DialogStudentListScreen = dynamic(() => import('app/features/rnr/students/list'), {
 //   ssr: false,
 // });
-import { StudentListScreen } from 'app/features/rnr/students/list'
+import { StudentListScreen } from '@my/features/(react-native-reusables)/students/list'
 
 export default function Home() {
   return (

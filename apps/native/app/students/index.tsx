@@ -1,4 +1,4 @@
-import { StudentListScreen } from 'app/features/students/list'
+import { StudentListScreen } from '@my/features/(tamagui)/students/list'
 
 export default function Home() {
   return (

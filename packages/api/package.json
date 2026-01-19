@@ -4,6 +4,20 @@
   "private": true,
   "main": "./index.ts",
   "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    },
+    "./generated/*": {
+      "types": "./generated/*.ts",
+      "default": "./generated/*.ts"
+    },
+    "./*": {
+      "types": "./*.ts",
+      "default": "./*.ts"
+    }
+  },
   "scripts": {
     "generate": "orval"
   },

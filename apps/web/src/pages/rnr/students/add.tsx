@@ -1,4 +1,4 @@
-import { AddStudentScreen } from 'app/features/rnr/students/add'
+import { AddStudentScreen } from '@my/features/(react-native-reusables)/students/add'
 export default function Add() {
   return (
     <>

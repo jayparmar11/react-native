@@ -5,11 +5,17 @@
     "*.css"
   ],
   "private": true,
-  "types": "./src",
+  "types": "./src/index.tsx",
   "main": "src/index.tsx",
   "exports": {
-    ".": "./src/index.tsx",
-    "./src/components/*": "./src/components/*"
+    ".": {
+      "types": "./src/index.tsx",
+      "default": "./src/index.tsx"
+    },
+    "./src/components/*": {
+      "types": "./src/components/*.tsx",
+      "default": "./src/components/*.tsx"
+    }
   },
   "module:jsx": "src",
   "files": [

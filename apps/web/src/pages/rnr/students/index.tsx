@@ -1,5 +1,5 @@
 'use client'
-import { StudentListScreen } from 'app/features/rnr/students/list'
+import { StudentListScreen } from '@my/features/(react-native-reusables)/students/list'
 import { useEffect, useState } from 'react'
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false)

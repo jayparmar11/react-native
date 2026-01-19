@@ -1,4 +1,4 @@
-import { UpdateStudentScreen } from 'app/features/students/update'
+import { UpdateStudentScreen } from '@my/features/(tamagui)/students/update'
 import { useRouter } from 'next/router'
 
 export default function Update() {

@@ -1,6 +1,5 @@
 import { withTamagui } from '@tamagui/next-plugin'
 import type { NextConfig } from 'next'
-import { config } from '@my/config'
 
 const nextConfig: NextConfig = {
   typescript: {
@@ -11,6 +10,11 @@ const nextConfig: NextConfig = {
     'react-native',
     'react-native-web',
     '@rn-primitives/slot',
+    '@my/config',
+    '@my/ui',
+    '@my/core',
+    '@my/features',
+    '@my/api',
     'lucide-react-native',
     '@rn-primitives/dialog',
     '@rn-primitives/hooks',

@@ -4,9 +4,10 @@ import { Button } from '@my/ui/src/components/button'
 import { Dialog, DialogContent } from '@my/ui/src/components/dialog'
 import { Text } from '@my/ui/src/components/text'
 import { useQueryClient } from '@tanstack/react-query'
+import { ChevronLeft, ChevronRight, Pencil, Plus, Trash2 } from '@tamagui/lucide-icons'
 import { useMemo, useState } from 'react'
 import { Platform, ScrollView, View } from 'react-native'
-import { useLink } from 'solito/navigation'
+import { useLink, useRouter } from 'solito/navigation'
 import {
   getGetStudentsQueryKey,
   useDeleteStudent,
@@ -63,15 +64,17 @@ function StudentRow({
   const editLink = useLink({ href: `/rnr/students/update/${id}` })
 
   return (
-    <View className="flex-row items-center px-3 py-2 border rounded-lg border-zinc-300 shadow-sm bg-white">
+    <View className="flex-row items-center px-3 py-2 bg-white border rounded-lg shadow-sm border-zinc-300">
       <View {...itemLink} className="flex-1">
         <Text className="text-base font-medium text-gray-900">{name}</Text>
       </View>
       <View className="flex-row items-center gap-2">
         <Button variant={'secondary'} {...editLink}>
+          <Pencil />
           <Text>EDIT</Text>
         </Button>
-        <Button variant={'destructive'} onPress={() => onAskDelete(student)}>
+        <Button variant={'destructive'} onPress={() => onAskDelete(student)} className='text-white'>
+          <Trash2 className='text-white' color={"#fff"}/>
           <Text>DELETE</Text>
         </Button>
       </View>
@@ -81,6 +84,7 @@ function StudentRow({
 
 // Main screen
 export function StudentListScreen() {
+  const router = useRouter()
   const { data, isLoading, isError } = useGetStudents()
   const deleteMutation = useDeleteStudent()
   const queryClient = useQueryClient()
@@ -127,22 +131,28 @@ export function StudentListScreen() {
   return (
     <View className="flex-1 w-full max-w-3xl px-4 pt-4 pb-16 mx-auto bg-white">
       {/* Header */}
-      <View className="flex-row items-center justify-between mb-4">
-        <View>
-          <Text className="text-2xl font-semibold text-gray-900">Students</Text>
-          <Text className="text-xs text-gray-500 mt-1">
-            {isLoading ? 'Loading...' : `${students.length} record(s)`}
-          </Text>
+      <View>
+        <Button className='w-fit' variant='outline' size={'lg'} onPress={() => router.back()}>
+          <ChevronLeft />
+          <Text className="text-lg font-bold"> Back</Text>
+        </Button>
+        <View className="flex-row items-center justify-between mb-4">
+          <View>
+            <Text className="text-2xl font-semibold text-gray-900">Students</Text>
+            <Text className="mt-1 text-xs text-gray-500">
+              {isLoading ? 'Loading...' : `${students.length} record(s)`}
+            </Text>
+          </View>
+          {Platform.OS === 'web' && (
+            <Button {...addLink} size={'lg'}><Plus color={"#FFF"} />
+              <Text className="text-lg font-bold"> ADD</Text>
+            </Button>
+          )}
         </View>
-        {Platform.OS === 'web' && (
-          <Button {...addLink} size={'lg'}>
-            <Text className="font-bold text-lg">+ ADD</Text>
-          </Button>
-        )}
       </View>
 
       {/* Separator */}
-      <View className="h-px bg-gray-200 mb-4" />
+      <View className="h-px mb-4 bg-gray-200" />
 
       {/* Content states */}
       {isLoading && <Text className="text-sm text-gray-600">Loading students...</Text>}
@@ -150,7 +160,7 @@ export function StudentListScreen() {
         <Text className="text-sm text-red-500">Failed to load students. Please try again.</Text>
       )}
       {!isLoading && !isError && students.length === 0 && (
-        <View className="flex-1 items-center justify-center">
+        <View className="items-center justify-center flex-1">
           <Text className="text-sm text-gray-600">No students found.</Text>
         </View>
       )}
@@ -168,7 +178,8 @@ export function StudentListScreen() {
       {Platform.OS !== 'web' && (
         <View className="absolute right-4 bottom-6">
           <Button {...addLink} size={'lg'}>
-            <Text className="font-bold text-lg">+ ADD</Text>
+            <Plus color={"#FFF"} />
+            <Text className="text-lg font-bold"> ADD</Text>
           </Button>
         </View>
       )}
@@ -176,7 +187,7 @@ export function StudentListScreen() {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <>
           {/* <DialogOverlay className="bg-black/40" /> */}
-          <DialogContent className=" max-w-md mx-auto rounded-lg bg-white p-4">
+          <DialogContent className="max-w-md p-4 mx-auto bg-white rounded-lg ">
             <DeleteConfirmationContent
               name={deleteSheet.name}
               isDeleting={isDeleting}

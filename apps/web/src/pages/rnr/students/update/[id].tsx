@@ -1,4 +1,4 @@
-import { UpdateStudentScreen } from 'app/features/rnr/students/update'
+import { UpdateStudentScreen } from '@my/features/(react-native-reusables)/students/update'
 import { useRouter } from 'next/router'
 
 export default function Update() {

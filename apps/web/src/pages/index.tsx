@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { View, Text } from 'react-native'
-import { HomeScreen } from 'app/features/home/screen'
+import { HomeScreen } from '@my/features/home/screen'
+
 export default function Home() {
   return (
     <>

@@ -4,8 +4,8 @@ module.exports = {
   content: [
     './app/**/*.{js,jsx,ts,tsx}',
     './../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}',
-    './../../packages/app/features/**/*.{js,ts,jsx,tsx,mdx}',
-    './../../packages/app/provider/**/*.{js,ts,jsx,tsx,mdx}',
+    './../../packages/features/src/**/*.{js,ts,jsx,tsx,mdx}',
+    './../../packages/core/src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   presets: [require('nativewind/preset')],
   theme: {

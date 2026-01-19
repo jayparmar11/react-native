@@ -8,7 +8,7 @@ import { useMemo } from 'react'
 import { TamaguiProvider } from 'tamagui'
 import '../global.css'
 import '../../public/tamagui.css'
-import { AppQueryClientProvider } from 'app/provider/query-client-provider'
+import { AppQueryClientProvider } from '@my/core/providers/query-client-provider'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useRootTheme()
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Your page title</title>
+        <title>Tamagui + RNR demo</title>
         <meta name="description" content="Your page description" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

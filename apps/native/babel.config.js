@@ -8,15 +8,15 @@ module.exports = (api) => {
         {
           root: ['../..'],
           alias: {
-            // define aliases to shorten the import paths
-            app: '../../packages/app',
+            '@my/api': '../../packages/api',
+            '@my/core': '../../packages/core/src',
+            '@my/features': '../../packages/features/src',
             '@my/ui': '../../packages/ui',
+            '@my/config': '../../packages/config',
           },
           extensions: ['.js', '.jsx', '.tsx', '.ios.js', '.android.js'],
         },
       ],
-      // if you want reanimated support
-      // 'react-native-reanimated/plugin',
       ...(process.env.EAS_BUILD_PLATFORM === 'android'
         ? []
         : [
@@ -24,12 +24,13 @@ module.exports = (api) => {
               '@tamagui/babel-plugin',
               {
                 components: ['@my/ui', 'tamagui'],
-                config: '../../packages/config/src/tamagui.config.ts',
+                config: '../../packages/config/src/index.ts', // Unified path
                 logTimings: true,
                 disableExtraction: process.env.NODE_ENV === 'development',
               },
             ],
           ]),
+      'react-native-reanimated/plugin', // Recommended since you use RNR
     ],
   }
 }

@@ -1,0 +1,42 @@
+{
+  "name": "@my/core",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./providers/*": {
+      "types": "./src/providers/*.tsx",
+      "default": "./src/providers/*.tsx"
+    },
+    "./hooks/*": {
+      "types": "./src/hooks/*.ts",
+      "default": "./src/hooks/*.ts"
+    },
+    "./store/*": {
+      "types": "./src/store/*.ts",
+      "default": "./src/store/*.ts"
+    },
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "dependencies": {
+    "@my/api": "workspace:*",
+    "@my/config": "workspace:*",
+    "@my/ui": "workspace:*",
+    "@tamagui/next-theme": "^1.144.1",
+    "@tanstack/react-query": "^5.90.16",
+    "axios": "^1.13.2",
+    "react-native-safe-area-context": "5.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.0",
+    "typescript": "~5.8.3"
+  }
+}

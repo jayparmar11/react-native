@@ -1,7 +1,7 @@
-import { NativeToast } from '@my/ui/src/NativeToast'
+// import { NativeToast } from '@my/ui/src/NativeToast'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
-import { Provider } from 'app/provider'
-import { AppQueryClientProvider } from 'app/provider/query-client-provider'
+import { Provider } from '@my/core/providers/index'
+import { AppQueryClientProvider } from '@my/core/providers/query-client-provider'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import { useEffect } from 'react'
@@ -44,7 +44,7 @@ function RootLayoutNav() {
       <AppQueryClientProvider>
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <Stack />
-          <NativeToast />
+          {/* <NativeToast /> */}
         </ThemeProvider>
       </AppQueryClientProvider>
     </Provider>

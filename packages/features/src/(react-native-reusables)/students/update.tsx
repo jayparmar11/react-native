@@ -100,44 +100,44 @@ export function UpdateStudentScreen(props: UpdateStudentScreenProps) {
             {/* Header */}
             <View className="items-center mb-6">
               <Text className="text-2xl font-semibold text-gray-900">Edit Student</Text>
-              <Text className="text-xs text-gray-500 mt-1">Update the student information.</Text>
+              <Text className="mt-1 text-xs text-gray-500">Update the student information.</Text>
             </View>
 
             {/* Loading state before data */}
-            {isLoading && <Text className="text-sm text-gray-600 mb-4">Loading student...</Text>}
+            {isLoading && <Text className="mb-4 text-sm text-gray-600">Loading student...</Text>}
 
             {/* Form */}
             {!isLoading && (
               <View className={Platform.OS === 'web' ? 'flex flex-col gap-4' : undefined}>
                 {/* Name */}
                 <View className="mb-4">
-                  <Text className="text-sm text-gray-800 mb-1">Name</Text>
+                  <Text className="mb-1 text-sm text-gray-800">Name</Text>
                   <Input
                     value={name}
                     onChangeText={setName}
                     placeholder="Enter name"
                     autoCapitalize="words"
                     autoCorrect={false}
-                    className="border border-gray-300 rounded-md px-3 py-2 text-base"
+                    className="px-3 py-2 text-base border border-gray-300 rounded-md"
                   />
                   {errors.name ? (
-                    <Text className="text-xs text-red-500 mt-1">{errors.name}</Text>
+                    <Text className="mt-1 text-xs text-red-500">{errors.name}</Text>
                   ) : null}
                 </View>
 
                 {/* Email */}
                 <View className="mb-4">
-                  <Text className="text-sm text-gray-800 mb-1">Email</Text>
+                  <Text className="mb-1 text-sm text-gray-800">Email</Text>
                   <Input
                     value={email}
                     onChangeText={setEmail}
                     placeholder="Enter email"
                     autoCapitalize="none"
                     keyboardType="email-address"
-                    className="border border-gray-300 rounded-md px-3 py-2 text-base"
+                    className="px-3 py-2 text-base border border-gray-300 rounded-md"
                   />
                   {errors.email ? (
-                    <Text className="text-xs text-red-500 mt-1">{errors.email}</Text>
+                    <Text className="mt-1 text-xs text-red-500">{errors.email}</Text>
                   ) : null}
                 </View>
 

@@ -1,14 +1,9 @@
 {
   "extends": "../../tsconfig.base",
   "compilerOptions": {
-    "module": "node16",
-    "moduleResolution": "node16",
+    "composite": true,
     "baseUrl": ".",
-    "rootDir": ".",
-    "jsx": "react-jsx",
-    "paths": {
-      "@my/api/*": ["./*"]
-    }
+    "rootDir": "."
   },
   "include": ["**/*.ts", "**/*.tsx"]
 }
