@@ -39,6 +39,7 @@ const nextConfig: NextConfig = {
     }
     return config
   },
+  turbopack:{},
   reactCompiler: true,
   reactStrictMode: true,
 }
