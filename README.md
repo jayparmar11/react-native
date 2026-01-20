@@ -35,17 +35,17 @@ The main apps are:
 
 ## 🏁 Start the app
 
-1. Install dependencies: 
+0. Start server(new terminal): 
+```sh
+npm run server
+```
+1. (Start new terminal and) Install dependencies
 ```sh 
 yarn
 ```
 2. Run both apps: 
 ```sh
 yarn dev
-```
-3. Start server(new terminal): 
-```sh
-cd ./.server && npm i && npm run dev
 ```
 
 ### Run Individual apps:
