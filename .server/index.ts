@@ -1,29 +1,87 @@
 import { serve } from '@hono/node-server'
+import { handle } from 'hono/vercel'
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { Scalar } from '@scalar/hono-api-reference'
 import { cors } from 'hono/cors'
-import fs from 'node:fs/promises'
 
-// --- 1. DATA STORAGE LOGIC ---
-const DB_FILE = './students.json'
-
-async function getStudents(): Promise<any[]> {
-  try {
-    const data = await fs.readFile(DB_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch {
-    return []
-  }
-}
-
-async function saveStudents(students: any[]) {
-  await fs.writeFile(DB_FILE, JSON.stringify(students, null, 2))
-}
-
-// --- 2. SCHEMAS (OpenAPI Definitions) ---
+// --- 1. DATA STORAGE (In-Memory for Demo) ---
+// Note: This resets on Vercel "Cold Starts", but is perfect for a demo/Edge runtime.
+let students = [
+  {
+    id: '1',
+    name: 'Alice Johnson test',
+    email: 'alice.j@example.com',
+  },
+  {
+    id: '2',
+    name: 'Bob Smith',
+    email: 'bob.smith@example.com',
+  },
+  {
+    id: '3',
+    name: 'Charlie Davis',
+    email: 'charlie.d@example.com',
+  },
+  {
+    id: '4',
+    name: 'Diana Prince',
+    email: 'diana.p@example.com',
+  },
+  {
+    id: '5',
+    name: 'Evan Wright',
+    email: 'evan.w@example.com',
+  },
+  {
+    id: '6',
+    name: 'Fiona Gallagher',
+    email: 'fiona.g@example.com',
+  },
+  {
+    id: '7',
+    name: 'George Miller',
+    email: 'george.m@example.com',
+  },
+  {
+    id: '9',
+    name: 'Ian Malcolm',
+    email: 'ian.m@example.com',
+  },
+  {
+    id: '10',
+    name: 'Julia Roberts',
+    email: 'julia.r@example.com',
+  },
+  {
+    name: 'asdfasdfsfee',
+    email: 'fdsafsd@fadfasdf.dfs',
+    id: '1768745038157',
+  },
+  {
+    name: 'afaasdfs',
+    email: 'dfasd@fadsf.asdfasdf',
+    id: '1768745261624',
+  },
+  {
+    name: 'adsfasdf',
+    email: 'fdasdfa@fasdf.dsfa',
+    id: '1768750001921',
+  },
+  {
+    name: 'hd1',
+    email: 'hd@gmail.com',
+    id: '1768825221699',
+  },
+  {
+    name: 'jerry',
+    email: 'jerry@gmail.com',
+    id: '1768825332650',
+  },
+]
+// --- 2. SCHEMAS ---
 const StudentSchema = z
   .object({
-    id: z.string().openapi({ example: '17123456789' }),
+    id: z.string().openapi({ example: '1' }),
     name: z.string().openapi({ example: 'John Doe' }),
     email: z.string().email().openapi({ example: 'john@example.com' }),
   })
@@ -32,22 +90,23 @@ const StudentSchema = z
 const CreateStudentSchema = StudentSchema.omit({ id: true })
 
 const ParamsSchema = z.object({
-  id: z.string().openapi({ param: { name: 'id', in: 'path' }, example: '123' }),
+  id: z.string().openapi({ param: { name: 'id', in: 'path' }, example: '1' }),
 })
 
 // --- 3. APP SETUP ---
 const app = new OpenAPIHono()
+
+// Apply Middleware
 app.use('*', cors())
 
 // --- 4. CRUD ROUTES ---
 
-// [READ ALL] GET /students
+// [READ ALL]
 app.openapi(
   createRoute({
     method: 'get',
     path: '/students',
     tags: ['students'],
-    operationId: 'getStudents',
     responses: {
       200: {
         content: { 'application/json': { schema: z.array(StudentSchema) } },
@@ -55,123 +114,96 @@ app.openapi(
       },
     },
   }),
-  async (c) => {
-    const students = await getStudents()
-    return c.json(students)
-  }
+  (c) => c.json(students)
 )
 
-// [READ SINGLE] GET /students/:id
+// [READ SINGLE]
 app.openapi(
   createRoute({
     method: 'get',
     path: '/students/{id}',
     tags: ['students'],
-    operationId: 'getStudentById',
     request: { params: ParamsSchema },
     responses: {
-      200: {
-        content: { 'application/json': { schema: StudentSchema } },
-        description: 'Student found',
-      },
-      404: { description: 'Student not found' },
+      200: { content: { 'application/json': { schema: StudentSchema } }, description: 'Found' },
+      404: { description: 'Not found' },
     },
   }),
-  async (c) => {
+  (c) => {
     const { id } = c.req.valid('param')
-    const students = await getStudents()
     const student = students.find((s) => s.id === id)
     if (!student) return c.json({ message: 'Not found' }, 404)
     return c.json(student)
   }
 )
 
-// [CREATE] POST /students
+// [CREATE]
 app.openapi(
   createRoute({
     method: 'post',
     path: '/students',
-    tags:['students'],
-    operationId: 'createStudent',
+    tags: ['students'],
     request: { body: { content: { 'application/json': { schema: CreateStudentSchema } } } },
     responses: {
-      201: {
-        content: { 'application/json': { schema: StudentSchema } },
-        description: 'Student created',
-      },
+      201: { content: { 'application/json': { schema: StudentSchema } }, description: 'Created' },
     },
   }),
   async (c) => {
     const data = c.req.valid('json')
-    const students = await getStudents()
     const newStudent = { ...data, id: Date.now().toString() }
     students.push(newStudent)
-    await saveStudents(students)
     return c.json(newStudent, 201)
   }
 )
 
-// [UPDATE] PUT /students/:id
+// [UPDATE]
 app.openapi(
   createRoute({
     method: 'put',
     path: '/students/{id}',
-    tags:['students'],
-    operationId: 'updateStudent',
+    tags: ['students'],
     request: {
       params: ParamsSchema,
       body: { content: { 'application/json': { schema: CreateStudentSchema } } },
     },
     responses: {
-      200: {
-        content: { 'application/json': { schema: StudentSchema } },
-        description: 'Student updated',
-      },
-      404: { description: 'Student not found' },
+      200: { content: { 'application/json': { schema: StudentSchema } }, description: 'Updated' },
+      404: { description: 'Not found' },
     },
   }),
   async (c) => {
     const { id } = c.req.valid('param')
     const data = c.req.valid('json')
-    const students = await getStudents()
-
     const index = students.findIndex((s) => s.id === id)
     if (index === -1) return c.json({ message: 'Not found' }, 404)
 
-    const updatedStudent = { ...students[index], ...data }
-    students[index] = updatedStudent
-
-    await saveStudents(students)
-    return c.json(updatedStudent)
+    students[index] = { ...students[index], ...data }
+    return c.json(students[index])
   }
 )
 
-// [DELETE] DELETE /students/:id
+// [DELETE]
 app.openapi(
   createRoute({
     method: 'delete',
     path: '/students/{id}',
-    tags:['students'],
-    operationId: 'deleteStudent',
+    tags: ['students'],
     request: { params: ParamsSchema },
     responses: {
-      200: { description: 'Student deleted' },
-      404: { description: 'Student not found' },
+      200: { description: 'Deleted' },
+      404: { description: 'Not found' },
     },
   }),
   async (c) => {
     const { id } = c.req.valid('param')
-    const students = await getStudents()
-    const filtered = students.filter((s) => s.id !== id)
-
-    if (students.length === filtered.length) return c.json({ message: 'Not found' }, 404)
-
-    await saveStudents(filtered)
+    const initialLength = students.length
+    students = students.filter((s) => s.id !== id)
+    if (students.length === initialLength) return c.json({ message: 'Not found' }, 404)
     return c.json({ message: 'Deleted' })
   }
 )
 
-// --- 5. OPENAPI & UI ---
+// --- 5. DOCUMENTATION ---
 app.doc('/doc', {
   openapi: '3.0.0',
   info: { title: 'Student Management API', version: '1.0.0' },
@@ -179,7 +211,16 @@ app.doc('/doc', {
 
 app.get('/reference', Scalar({ spec: { url: '/doc' } }))
 
-console.log('Server running on http://localhost:5000')
-console.log('API Docs available at http://localhost:5000/reference')
+// --- 6. EXPORTS & RUNTIME ---
 
-serve({ fetch: app.fetch, port: 5000 })
+// Local Development
+if (process.env.NODE_ENV !== 'production') {
+  const port = 5000
+  console.log(`Server running on http://localhost:${port}`)
+  console.log(`Swagger UI: http://localhost:${port}/reference`)
+  serve({ fetch: app.fetch, port })
+}
+
+// Vercel Production Export
+export const runtime = 'edge'
+export default handle(app)
