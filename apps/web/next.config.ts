@@ -30,6 +30,7 @@ const nextConfig: NextConfig = {
   ],
   experimental: {
     scrollRestoration: true,
+    optimizeCss: true
   },
   webpack: (config) => {
     config.resolve.alias = {
