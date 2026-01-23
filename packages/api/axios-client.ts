@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
 export const AXIOS_INSTANCE = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://tamagui-plus-react-native-reusables-server.vercel.app/',
 })
 
 export const customInstance = <T>(config: AxiosRequestConfig): Promise<T> => {
